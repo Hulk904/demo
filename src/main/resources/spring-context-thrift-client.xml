@@ -15,14 +15,14 @@
     <context:annotation-config/>
     <aop:aspectj-autoproxy  proxy-target-class="true"/>
     <!-- fixedAddress -->
-	<!--  
-    <bean id="userService" class="com.demo.thrift.ThriftServiceClientProxyFactory">
-        <property name="service" value="com.demo.service.UserService"></property>
-        <property name="serverAddress" value="127.0.0.1:9090:2"></property>
-        <property name="maxActive" value="5"></property>
-        <property name="idleTime" value="10000"></property>
-    </bean>
-    -->
+
+    <!--<bean id="userService" class="com.demo.thrift.ThriftServiceClientProxyFactory">-->
+        <!--<property name="service" value="com.demo.service.UserService"></property>-->
+        <!--<property name="serverAddress" value="127.0.0.1:9090:2"></property>-->
+        <!--<property name="maxActive" value="5"></property>-->
+        <!--<property name="idleTime" value="10000"></property>-->
+    <!--</bean>-->
+
     <!-- zookeeper -->
     <!--<bean id="thriftZookeeper" class="com.demo.thrift.zookeeper.ZookeeperFactory" destroy-method="close">-->
     	<!--<property name="connectString" value="127.0.0.1:2181"></property>-->
@@ -39,7 +39,7 @@
         	<!--</bean>-->
         <!--</property>-->
     <!--</bean>-->
-
+    <!--使用 aop的配置就可以了，同时使用这两种方式将导致 二次代理的问题，出现一些莫名奇妙的问题-->
     <!--<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"/>-->
 
     <bean name="userManager" class="com.demo.proxydemo.aspect.UserManager"/>

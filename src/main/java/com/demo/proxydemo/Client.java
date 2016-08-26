@@ -22,8 +22,8 @@ public class Client {
                 RealSubject.class.getInterfaces(),
                 handler);
 
-        System.out.println(proxyInstance.getClass().getName());
-        proxyInstance.visit();
+       // System.out.println(proxyInstance.getClass().getName());
+        System.out.println(proxyInstance.visit());
 
     }
 }

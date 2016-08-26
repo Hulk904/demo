@@ -12,4 +12,8 @@ public class Man {
     public void test(){
         System.out.println("123");
     }
+
+    private void method1(){
+        System.out.println("private method");
+    }
 }

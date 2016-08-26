@@ -5,7 +5,7 @@ package com.demo.proxydemo;
  */
 public class RealSubject implements Subject{
     @Override
-    public void visit() {
-        System.out.println("I am 'RealSubject',I am the execution method");
+    public String visit() {
+        return "I am 'RealSubjnec',I am the execution method";
     }
 }

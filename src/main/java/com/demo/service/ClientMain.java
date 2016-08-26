@@ -2,10 +2,13 @@ package com.demo.service;
 
 import com.demo.thrift.support.PersonTest;
 import com.demo.thrift.support.impl.Man;
+import net.sf.cglib.core.DebuggingClassWriter;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
+
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,6 +18,7 @@ public class ClientMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/home/yangyuan/code");
 		// simple();
 		spring();
 	}
@@ -31,7 +35,7 @@ public class ClientMain {
 			//PersonTest man = (PersonTest) context.getBean("man");
 			Man man = (Man) context.getBean("man");
 			man.test();
-			//Thread.sleep(3000000);
+			Thread.sleep(3000000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
