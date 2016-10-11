@@ -24,6 +24,7 @@ public class Client {
 
        // System.out.println(proxyInstance.getClass().getName());
         System.out.println(proxyInstance.visit());
-
+        System.out.println("realSubject=="+realSubject);
+        System.out.println("proxyInstance==>"+proxyInstance);
     }
 }
