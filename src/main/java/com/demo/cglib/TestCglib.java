@@ -20,7 +20,6 @@ public class TestCglib {
         enhancer.setCallback(hacker);
         Programmer proxy =(Programmer)enhancer.create();
         proxy.code();
-
         //ProxyUtils.generateClassFile(proxy.getClass(), "ProgrammerProxy");
     }
 }
