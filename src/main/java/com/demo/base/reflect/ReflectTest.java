@@ -1,6 +1,7 @@
 package com.demo.base.reflect;
 
 import com.demo.thrift.support.impl.Man;
+import sun.reflect.Reflection;
 
 import java.lang.reflect.Method;
 
@@ -9,14 +10,16 @@ import java.lang.reflect.Method;
  */
 public class ReflectTest {
     public static void main(String[] args) {
-        Man  man = new Man();
-        Method[] methods = man.getClass().getDeclaredMethods();
-        int b = 0;
-        System.out.println(int.class );
-        try {
-            methods[1].invoke(man, null);//private方法不能调用
-        }catch (Exception exc){
-            exc.printStackTrace();
-        }
+//        Man  man = new Man();
+//        Method[] methods = man.getClass().getDeclaredMethods();
+//        int b = 0;
+//        System.out.println(int.class );
+//        try {
+//            methods[1].invoke(man, null);//private方法不能调用
+//        }catch (Exception exc){
+//            exc.printStackTrace();
+//        }
+        Class clazz = Reflection.getCallerClass(2);
+        System.out.println(clazz);
     }
 }
