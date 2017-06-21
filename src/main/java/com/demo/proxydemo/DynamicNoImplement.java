@@ -10,6 +10,7 @@ public class DynamicNoImplement implements InvocationHandler {
     @Override
     public Object invoke(Object object, Method method, Object[] args)
             throws Throwable {
+  //      method.invoke(object,args);
         return null;
     }
 }
