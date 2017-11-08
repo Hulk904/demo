@@ -9,8 +9,8 @@ public class Person implements Serializable {
     static {
         System.out.println("i'm static!");
     }
-    private String name;
-    private int age;
+    private String name = "default";
+    private int age = -1;
     public Person(){}
 
     public Person(int age ,String name){
@@ -26,7 +26,7 @@ public class Person implements Serializable {
         this.name = name;
     }
 
-    public int getAge() {
+    public final int getAge() {
         return age;
     }
 
