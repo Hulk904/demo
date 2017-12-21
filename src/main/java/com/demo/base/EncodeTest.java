@@ -1,5 +1,7 @@
 package com.demo.base;
 
+import sun.security.provider.MD5;
+
 import java.io.UnsupportedEncodingException;
 
 /**
