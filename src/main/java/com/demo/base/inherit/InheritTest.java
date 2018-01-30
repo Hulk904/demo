@@ -7,7 +7,7 @@ import com.demo.base.serializable.Person;
  */
 public class InheritTest {
     public static void main(String[] args) {
-        Person person = new ChildClass();
+        Person person = null;//new ChildClass();
         System.out.println(person.getName());
     }
 }

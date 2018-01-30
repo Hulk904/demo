@@ -12,7 +12,7 @@ import java.util.Map;
 public class GenericAvoid {
     public static void main(String[] args) throws Exception{
         Map<Long,Person> map = new HashMap<>();
-        Person person = new Person();
+        Person person = null;//new Person();
         person.setAge(12);
         person.setName("yy");
         //map.put("123",person);

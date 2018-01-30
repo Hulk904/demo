@@ -11,7 +11,7 @@ public class Test {
         Enhancer enhancer = new Enhancer();
         //test 1
         enhancer.setSuperclass(Person.class);
-        Person p = new Person();
+        Person p = null;//new Person();
         p.setAge(29);
         p.setName("hulk");
         enhancer.setCallback(new MyMethodInterceptor(p));

@@ -29,5 +29,13 @@ public class StringDemo {
         System.out.println(str01.hashCode() + "/" + str02.hashCode() + "/" + str03.hashCode());
         System.out.println(str01 == str02);
         System.out.println(str02 == str03);//返回false 虽然hashcode和内容一样，但是是两个不同的对象
+
+
+        String s = "0123456789";
+        System.out.println("改变前:s=" + s);
+        Field f = s.getClass().getDeclaredField("value");
+        f.setAccessible(true);
+        f.set(s, new char[]{'a', 'b', 'c'});
+        System.out.println("改变后:s=" + s );
     }
 }
