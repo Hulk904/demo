@@ -31,7 +31,7 @@ public class BaseLockImpl<T> implements BlockingQueue<T>{
     public void put(T t)  throws InterruptedException{
         lock.lock();
         try {
-            while(count == capacity) {//满
+            while(count == capacity) {
                 notFull.await();
             }
             data[pflag] = t;

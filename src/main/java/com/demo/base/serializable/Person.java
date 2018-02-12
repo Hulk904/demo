@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Person implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     static {
         System.out.println("i'm static!");
@@ -15,7 +15,10 @@ public class Person implements Serializable {
     private String name = "default";
     private int age = -1;
 
-    private Person(){}
+
+
+
+    public Person(){}
 
 //    public Person(int age ,String name){
 //        this.age = age;
@@ -23,6 +26,7 @@ public class Person implements Serializable {
 //    }
 
     public String getName() {
+        System.out.println(name);
         return name;
     }
 
