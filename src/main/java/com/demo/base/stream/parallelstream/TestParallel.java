@@ -20,7 +20,7 @@ public class TestParallel {
 //        list.add(new Person(17,"mak"));
 //        list.add(new Person(18,"tina"));
 //        list.add(new Person(19,"joe"));
-        list.parallelStream().forEach(s -> list1.add(s));
+       // list.parallelStream().forEach(s -> list1.add(s));
         System.out.println(list1);
     }
 }

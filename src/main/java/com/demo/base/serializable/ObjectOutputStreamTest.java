@@ -18,7 +18,8 @@ public class ObjectOutputStreamTest {
         //反序列化只有private构造函数的对象Person
         InputStream inputStream = new FileInputStream(file);
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        Person person = (Person)objectInputStream.readObject();
+        Object object =  objectInputStream.readObject();
+        Person person = (Person)object;
         System.out.println(person.getName());
     }
 }

@@ -2,7 +2,7 @@ package com.demo.base.stream;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 /**
  * Created by yangyuan on 17-4-12.

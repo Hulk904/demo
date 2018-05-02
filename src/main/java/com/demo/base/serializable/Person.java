@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Person implements Serializable {
 
-    //private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     static {
         System.out.println("i'm static!");
@@ -18,7 +18,7 @@ public class Person implements Serializable {
 
 
 
-    public Person(){}
+    private   Person(){}
 
 //    public Person(int age ,String name){
 //        this.age = age;
