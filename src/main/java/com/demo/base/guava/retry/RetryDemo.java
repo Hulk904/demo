@@ -5,7 +5,6 @@ import com.github.rholder.retry.*;
 import com.google.common.base.Predicates;
 import org.apache.commons.lang3.StringUtils;
 
-import java.rmi.RemoteException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -30,19 +29,15 @@ public class RetryDemo {
 
     }
 
-    private static Callable<Boolean> atomicCall = new Callable<Boolean>(){
-
-        @Override
-        public Boolean call() throws Exception {
-            String  result = HttpClientUtils.sendHttpPost("www.jd.com",null);
-            System.out.println(result);
-            if(StringUtils.isEmpty(result)){
-                throw new  RuntimeException("error");
-            }
-            if(result.length()>100){
-                return true;
-            }
-            return false;
+    private static Callable<Boolean> atomicCall = () -> {
+        String  result = HttpClientUtils.sendHttpPost("www.jd.com",null);
+        System.out.println(result);
+        if(StringUtils.isEmpty(result)){
+            throw new  RuntimeException("error");
         }
+        if(result.length()>100){
+            return true;
+        }
+        return false;
     };
 }
