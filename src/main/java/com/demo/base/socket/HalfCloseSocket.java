@@ -15,7 +15,7 @@ public class HalfCloseSocket {
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
             writer.println("i am yangyuan");
             writer.flush();
-            socket.shutdownOutput();
+            socket.shutdownOutput();//半关闭
             while (in.hasNextLine()){
                 System.out.println(in.nextLine());
             }
