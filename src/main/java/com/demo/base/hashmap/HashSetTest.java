@@ -22,6 +22,7 @@ public class HashSetTest {
         hs2.add(p22);
         p22.setY(7);
         hs2.remove(p22);
+        //hs2.add(p22);也会多加一条数据
         System.out.println(hs2.size());
     }
 }
