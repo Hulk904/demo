@@ -1,11 +1,20 @@
 package com.demo.base.generic;
 
+import com.demo.base.clone.Person;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by yangyuan on 16-9-30.
  *
  */
 public class Test {
     public static void main(String[] args) {
+        List<Person> list = new ArrayList<>();
+        list.add(new Person("", 12));
+        Person p = list.get(0);
+        System.out.println(p);
         try {
             say(String.class);
         }catch (Exception exc){
