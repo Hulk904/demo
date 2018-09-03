@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Created by yangyuan on 1/12/18.
+ * 数组组合最大数
+ * 本质就是定义两个数据的大小排序规则
  */
 public class QuickSort {
     public static void main(String[] args) {
