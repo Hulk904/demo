@@ -22,7 +22,7 @@ public class ContextStaticReloading {
         }
     }
 
-    public static Object newContext(Cache cache)
+    public static Object newContext(Cache cache)  
         throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException,
         InvocationTargetException, NoSuchFieldException {
         String className = "com.demo.base.classloader.hotswap.ContextStaticReloading$Context";
