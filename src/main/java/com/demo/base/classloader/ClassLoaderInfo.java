@@ -7,6 +7,8 @@ import com.demo.base.serializable.Person;
  */
 public class ClassLoaderInfo {
     public static void main(String[] args) throws Exception{
+
+        
 //        System.out.println(ClassLoaderInfo.class.getClassLoader().toString());
 //        ClassLoader.getSystemClassLoader();
 //        Class clazz = Person.class;//也会加载 Person但是不会执行static快
