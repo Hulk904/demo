@@ -61,6 +61,8 @@ public class ClassReloading {
                 return defineClass(name,data,0,data.length);
             }else{
                 return super.loadClass(name);
+
+                
             }
         }
         private byte[] loadByte(String name) throws Exception {
@@ -72,6 +74,8 @@ public class ClassReloading {
             fis.read(data);
             fis.close();
             return data;
+
+
         }
     }
 }
