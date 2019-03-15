@@ -15,7 +15,7 @@ public class ContextReloading {
         InvocationTargetException, InterruptedException {
         for (;;){
             Object context = newContext();//创建应用上下文
-            invokeContext(context);//通过上下文对象context调用业务方法
+            invokeContext(context);//通过上下文对象context调用业务方法  
             Thread.sleep(3000);
         }
     }
