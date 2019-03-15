@@ -24,6 +24,8 @@ public class QuickSort {
         sort(data,index + 1,hi);
     }
 
+
+
     public static int partition(int []data,int lo,int hi){
         int pirot = data[lo];
         while (lo < hi){
