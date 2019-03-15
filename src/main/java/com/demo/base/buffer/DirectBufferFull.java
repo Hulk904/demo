@@ -12,6 +12,6 @@ public class DirectBufferFull {
             ByteBuffer.allocateDirect(1024*1024*800);
         }
         Thread.sleep(20000);
-        System.out.println("end");
+        System.out.println("end");//test
     }
 }
