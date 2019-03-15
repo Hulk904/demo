@@ -19,7 +19,6 @@ public class ContextReloading {
             Thread.sleep(3000);
         }
     }
-
     //创建应用的上下文，context是整个应用的GC roots，创建完返回对象之前调用init()初始化对象
     public static Object newContext()
         throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException,
