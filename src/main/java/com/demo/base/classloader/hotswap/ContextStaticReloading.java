@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by yangyuan on 2019/3/15.
- *  隔离自定义类加载器
+ *  隔离自定义类加载器  ooo 
  * @author yangyuan
  * @date 2019/03/15
  */
@@ -33,7 +33,7 @@ public class ContextStaticReloading {
         return context;
     }
 
-    public static void invokeContext(Object context)    
+    public static void invokeContext(Object context)
         throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         context.getClass().getDeclaredMethod("showUser").invoke(context);
     }
