@@ -5,7 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by yangyuan on 2019/3/15.
- *  隔离自定义类加载器  ooo 
+ *  隔离自定义类加载器
+ *  发现user的name即时改变，而cache的却没有变化，从而实现了用户态的固化
  * @author yangyuan
  * @date 2019/03/15
  */

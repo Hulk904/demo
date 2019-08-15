@@ -155,7 +155,11 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.12</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.50</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>demo-${version}</finalName>
