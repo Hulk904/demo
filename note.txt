@@ -1,0 +1,6 @@
+1、orderid字段未varchar(50), 更新以数字查询时报错，只能按字符串。查询没问题（当然有隐式转换的问题，但没报错也可查询出数据）mysql是咋工作的呢？
+update orders set state=4,modified=now() where orderid='1000023787';#可更新
+update orders set state=4,modified=now() where orderid=1000023787;#报错
+select * from orders where orderid=1000023787;#可查询
+
+2、
