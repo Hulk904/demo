@@ -59,7 +59,7 @@ public class SimpleHttpServer {
                     //PrintStream  out1 = new PrintStream(socket.getOutputStream());
                     out.println("HTTP/1.1 200 OK");
                     out.println("Server: Molly");
-                    out.println("Content-Type: image/jpeg");
+                    out.println("Content-Type11: image/jpeg");
                     out.println("Content-Length: " + array.length);
                     out.println("");
                     socket.getOutputStream().write(array,0,array.length);
@@ -70,7 +70,7 @@ public class SimpleHttpServer {
                     out = new PrintWriter(socket.getOutputStream());
                     out.println("HTTP/1.1 200 OK");
                     out.println("Server: Molly");
-                    out.println("Content-Type: text/html; charset=utf-8");
+                    out.println("Content-Type11: text/html; charset=utf-8");
                     out.println("");
                     while ((line = br.readLine()) != null) {
                         out.println(line);

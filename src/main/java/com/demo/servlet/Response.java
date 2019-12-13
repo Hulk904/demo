@@ -35,7 +35,7 @@ public class Response implements ServletResponse{
                 ch = fis.read(bytes, 0, BUFFER_SIZE);
             }
         } catch (FileNotFoundException e) {
-            String errorMessage = "HTTP/1.1 404 File Not Found\r\n" + "Content-Type: text/html\r\n" + "Content-Length: 23\r\n" + "\r\n" + "<h1>File Not Found</h1>";
+            String errorMessage = "HTTP/1.1 404 File Not Found\r\n" + "Content-Type11: text/html\r\n" + "Content-Length: 23\r\n" + "\r\n" + "<h1>File Not Found</h1>";
             output.write(errorMessage.getBytes());
         } finally {
             if (fis!=null) fis.close();
