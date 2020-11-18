@@ -1,6 +1,8 @@
 package com.demo.base.algorithm.sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by yangyuan on 1/12/18.
@@ -10,17 +12,41 @@ import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
         int[] data = new int[]{21,3,45,33,56,33,78,5,4,3,109,42};
-        sort(data,0,data.length - 1);
-        System.out.println(Arrays.toString(data));
+        //sort(data,0,data.length - 1);
+        //System.out.println(Arrays.toString(data));
+        //QuickSort q = new QuickSort();
+        //q.quickSort(data, 0, data.length - 1);
+        //System.out.println(Arrays.toString(data));
+        QuickSort quickSort = new QuickSort();
+        int [] next = quickSort.next("abcab");
+        System.out.println(Arrays.toString(next));
     }
 
+    public void quickSort(int[] nums, int left, int right){
+        if (left >= right) return;
+        int partion = partion(nums, left, right);
+        quickSort(nums, left, partion - 1);
+        quickSort(nums, partion + 1, right);
+    }
+
+    int partion (int[] nums, int left, int right){
+        int pirot = nums[left];
+        while (left < right){
+            while (left < right && nums[right] >= pirot) right--;
+            nums[left] = nums[right];
+            while (left < right && nums[left] <= pirot) left++;
+            nums[right] = nums[left];
+        }
+        nums[left] = pirot;
+        return left;
+    }
 
     public static void sort(int [] data,int lo,int hi){
         if(lo >= hi){
             return ;
         }
         int index = partition(data,lo,hi);
-        sort(data,lo,index -1);//分解点的数据不参与下一次的排序，所以是index - 1 和index + 1
+        sort(data,lo,index -1);//分界点的数据不参与下一次的排序，所以是index - 1 和index + 1
         sort(data,index + 1,hi);
     }
 
@@ -62,5 +88,34 @@ public class QuickSort {
 //        //返回的是枢轴的位置
 //        return low;
 //    }
+
+    List<Integer> kmp(String s, String p){
+        int[] next = next(p);
+        List<Integer> res =  new ArrayList<>();
+        for (int i = 0, j = -1; i < s.length(); i++){
+            while (j >=0 && s.charAt(i) != p.charAt(j + 1)) j = next[j];
+            if (s.charAt(i) == p.charAt(j + 1)){
+                j++;
+            }
+            if (j == p.length() - 1){
+                res.add(i - j);
+                j = next[j];//容易漏掉
+            }
+        }
+        return res;
+    }
+
+    private int[] next(String t){
+        int[] next = new int[t.length()];
+        Arrays.fill(next, -1);
+        for (int i = 1, j = -1; i < t.length(); i++){
+            while (j >= 0 && t.charAt(i) != t.charAt(j + 1)) j = next[j];
+            if (t.charAt(i) == t.charAt(j + 1)){
+                j++;
+            }
+            next[i] = j;
+        }
+        return next;
+    }
 
 }

@@ -15,7 +15,10 @@ public class AgentmainAttach {
 
     public static void main(String[] args) throws IOException, AttachNotSupportedException,
             AgentLoadException, AgentInitializationException {
-        VirtualMachine vm = VirtualMachine.attach("46005");//21887是待绑定的jvm进程的pid号
-        vm.loadAgent("/home/yangyuan/IdeaProjects/test/target/test-1.0-SNAPSHOT.jar", "com.wanmei.MyAgentTest&hello");
+        //56397 待绑定的jvm进程的pid号,可以直接main启动的jvm进程
+        VirtualMachine vm = VirtualMachine.attach("56397");
+        //下面第一个参数是 agent的包路径，而不是要被监控的进程对应的
+        //第二个参数是被代理（监控）的类及方法，可以不在一个工程中，通常也不会在一个工程中。
+        vm.loadAgent("/home/yangyuan/IdeaProjects/demo/target/demo-1.0.0.jar", "com.wanmei.MyAgentTest&hello");
     }
 }
