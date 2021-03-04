@@ -1,6 +1,5 @@
 package com.demo.base.lock;
 
-import java.awt.*;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
@@ -10,6 +9,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * @author yangyuan
  * @date 2020-11-18.
+ * 读写锁和重入锁 在读多写少场景下的测试。
+ * 200 （195读， 5写） 重入锁 200 秒多， 读写锁 6秒多 。  差距还是很大的
+ * 主要时读写锁，读是可以并发执行的。而重入锁 是同步关系，只能一个一个执行
  */
 public class ReadWriteLockDemo {
 
@@ -19,11 +21,18 @@ public class ReadWriteLockDemo {
     private static Lock writeLock = readWriteLock.writeLock();
     private int value;
 
+    private CountDownLatch countDownLatch;
+
+    public ReadWriteLockDemo (CountDownLatch countDownLatch){
+        this.countDownLatch = countDownLatch;
+    }
+
     public Object handleRead(Lock lock) throws InterruptedException{
         try {
             lock.lock();
             //模拟读操作
             Thread.sleep(1000);
+            countDownLatch.countDown();
             return value;
         }finally {
             lock.unlock();
@@ -34,14 +43,17 @@ public class ReadWriteLockDemo {
         try {
             lock.lock();
             Thread.sleep(1000);
+            countDownLatch.countDown();
             value = index;
         }finally {
             lock.unlock();
         }
     }
 
-    public static void main(String[] args) {
-        ReadWriteLockDemo demo = new ReadWriteLockDemo();
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(200);
+        ReadWriteLockDemo demo = new ReadWriteLockDemo(countDownLatch);
+        long t1 = System.currentTimeMillis();
         Runnable readRunnable = new Runnable() {
             @Override
             public void run() {
@@ -63,11 +75,16 @@ public class ReadWriteLockDemo {
                 }
             }
         };
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 195; i++) {
             new Thread(readRunnable).start();
         }
-        for (int i = 18; i < 20; i++) {
+        for (int i = 195; i < 200; i++) {
             new Thread(writeRunnable).start();
         }
+        countDownLatch.await();
+        System.out.println((System.currentTimeMillis() - t1));
     }
+
+
 }
+
